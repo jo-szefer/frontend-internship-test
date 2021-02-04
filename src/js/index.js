@@ -1,4 +1,19 @@
 /* Here goes your JS code */
+const loginForm = document.getElementById("login-form");
+const clickMeBtn = document.getElementById("show-popup-form");
+const submitBtn = document.getElementById("submitBtn");
+const emailAddress = document.getElementById("email");
+const password = document.getElementById("password");
+const checkbox = document.getElementById("checkbox");
+const successMsg = document.getElementById("successMsg");
+const regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}/;
+
+function setVisibility(e) {
+  e.preventDefault();
+  loginForm.classList.toggle("invisible");
+  clickMeBtn.classList.toggle("invisible");
+}
+
 document
   .getElementById("show-popup-form")
   .addEventListener("click", setVisibility);
@@ -6,23 +21,8 @@ document
   .getElementById("close-popup-btn")
   .addEventListener("click", setVisibility);
 
-function setVisibility(e) {
-  e.preventDefault();
-  const loginForm = document.getElementById("login-form");
-  loginForm.classList.toggle("invisible");
-  const clickMeBtn = document.getElementById("show-popup-form");
-  clickMeBtn.classList.toggle("invisible");
-}
-const submitBtn = document.getElementById("submitBtn");
-
 const formValidation = (e) => {
   e.preventDefault();
-
-  let isCorrect = false;
-  const emailAddress = document.getElementById("email");
-  const password = document.getElementById("password");
-  const checkbox = document.getElementById("checkbox");
-  const regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}/;
 
   if (emailAddress.value === "") {
     alert("Please enter your e-mail address!");
@@ -34,8 +34,16 @@ const formValidation = (e) => {
     alert("Invalid email format");
   } else if (!checkbox.checked) {
     alert("Please accept terms & conditions");
-  } else isCorrect = true;
-
-  return isCorrect;
+  } else {
+    submitForm();
+  }
 };
+
 submitBtn.addEventListener("click", formValidation);
+
+const submitForm = () => {
+  setTimeout(() => {
+    loginForm.classList.add("invisible");
+    successMsg.classList.remove("invisible");
+  }, 3000);
+};
