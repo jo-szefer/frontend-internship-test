@@ -26,7 +26,7 @@
       <div class="popup">
         <!-- Here goes your popup form HTML code -->
 
-        <form class="form">
+        <form class="form" name="emailForm" onsubmit="formValidation()">
           <button id="close-popup-btn" class="close-btn">
             <i class="fas fa-times-circle"></i>
           </button>
@@ -35,14 +35,24 @@
             class="email-input"
             placeholder="E-mail"
             type="email"
-            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            id="email"
           />
-          <input class="email-input" placeholder="Password" type="password" />
+          <input
+            class="email-input"
+            placeholder="Password"
+            type="password"
+            id="password"
+          />
           <label class="terms">
-            <input type="checkbox" name="terms" />
+            <input id="checkbox" type="checkbox" name="terms" />
             I agree to terms & conditions
           </label>
-          <input class="submit-btn" type="submit" value="submit" />
+          <input
+            id="submitBtn"
+            class="submit-btn"
+            type="submit"
+            value="submit"
+          />
         </form>
       </div>
     </div>
