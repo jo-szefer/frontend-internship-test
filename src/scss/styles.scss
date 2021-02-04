@@ -10,10 +10,14 @@ $grey:  #808080;
 }
 
 .popup {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 .form {
@@ -21,9 +25,15 @@ $grey:  #808080;
   background-color: $white;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 40px 30px 35px;
   position: relative;
-  width: 100%;
+
+  @media (orientation: landscape) and (max-height: 350px) {
+    padding: 10px;
+  }
+  @media (max-width: 320px ) and (orientation: portrait) {
+    padding: 30px 10px 20px;
+  }
 
   span {
     font-family: 'Lobster', cursive;
@@ -47,21 +57,27 @@ $grey:  #808080;
 
   .email-input {
     border: solid 2px $grey;
-    height: 30px;
-    margin: 20px;
+    box-sizing: border-box;
+    height: 40px;
+    margin: 10px;
     outline: none;
-    padding: 10px 25px;
+    padding: 20px 25px;
+    width: 100%;
   }
 
   .terms {
     align-items: center;
+    box-sizing: border-box;
     display: flex;
+    justify-content: center;
     margin: 10px;
+    width: 100%;
 
     input {
       height: 20px;
       width: 20px;
     }
+
   }
 
   .submit-btn {
@@ -70,11 +86,14 @@ $grey:  #808080;
     color: $white;
     cursor: pointer;
     font-family: 'Lato', sans-serif;
-    margin: 10px;
+    margin: 10px 0 ;
     outline: none;
     padding: 15px;
     text-transform: uppercase;
-    width: 75%;
+    width: 100%;
+    @media (orientation: landscape) {
+      margin: 0 10px;
+    }
 
 
     &:hover {
